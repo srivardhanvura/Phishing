@@ -2,8 +2,10 @@ from flask import Flask, render_template, request, url_for, redirect
 from pymongo.mongo_client import MongoClient
 from pymongo.server_api import ServerApi
 import random
+import os
 
 app = Flask(__name__)
+port = os.getenv("PORT")
 
 uri = "mongodb+srv://srivardhanvuralearns:eb1Vrtzkq8dCKexN@cluster0.uaji4wp.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0"
 
@@ -47,4 +49,4 @@ def actor():
 
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run(host="0.0.0.0", port=port, debug=True)
